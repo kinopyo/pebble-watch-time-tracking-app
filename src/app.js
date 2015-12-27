@@ -17,7 +17,7 @@
     };
 
     Timer.prototype.start = function() {
-      this.startedAt = new Date();
+      this.startedAt || (this.startedAt = new Date());
       return this.started = true;
     };
 

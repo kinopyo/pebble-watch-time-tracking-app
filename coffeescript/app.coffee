@@ -6,7 +6,7 @@ class Timer
     @started
 
   start: =>
-    @startedAt = new Date()
+    @startedAt ||= new Date()
     @started = true
 
   stop: =>
