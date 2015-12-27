@@ -1,18 +1,17 @@
 UI = require('ui')
 
+timer = new Timer()
+
 card = new UI.Card
   title: 'Reading'
 
-timer = new Date()
-isStarted = false
-
 card.on 'click', ->
-  if isStarted
-    isStarted = false
-    elapsed = new Date() - timer
-    card.body 'session time: ' + Math.floor(elapsed / 1000) + ' seconds'
+  if timer.started()
+    timer.stop()
+    timer.elapsed()
+    card.body "session time: #{timer.elapsed()} sec"
   else
-    isStarted = true
+    timer.start()
     card.body 'started'
 
 card.show()
