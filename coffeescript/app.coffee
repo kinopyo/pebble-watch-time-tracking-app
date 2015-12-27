@@ -9,7 +9,7 @@ isStarted = false
 card.on 'click', ->
   if isStarted
     isStarted = false
-    elapsed = new Date - timer
+    elapsed = new Date() - timer
     card.body 'session time: ' + Math.floor(elapsed / 1000) + ' seconds'
   else
     isStarted = true
