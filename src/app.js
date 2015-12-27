@@ -28,7 +28,7 @@
 
     Timer.prototype.elapsed = function() {
       var elapsed;
-      elapsed = this.stoppedAt - this.stoppedAt;
+      elapsed = this.stoppedAt - this.startedAt;
       return Math.floor(elapsed / 1000);
     };
 
@@ -47,7 +47,6 @@
   card.on('click', function() {
     if (timer.isStarted()) {
       timer.stop();
-      timer.elapsed();
       return card.body("session time: " + (timer.elapsed()) + " sec");
     } else {
       timer.start();

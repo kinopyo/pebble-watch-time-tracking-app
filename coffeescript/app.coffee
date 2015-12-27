@@ -14,7 +14,7 @@ class Timer
     @stoppedAt = new Date()
 
   elapsed: =>
-    elapsed = @stoppedAt - @stoppedAt
+    elapsed = @stoppedAt - @startedAt
     # time in seconds
     Math.floor elapsed / 1000
 
@@ -28,7 +28,6 @@ card = new UI.Card
 card.on 'click', ->
   if timer.isStarted()
     timer.stop()
-    timer.elapsed()
     card.body "session time: #{timer.elapsed()} sec"
   else
     timer.start()
